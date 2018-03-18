@@ -4,4 +4,4 @@ metadata:
   name: pivot-configmap
 data:
   config.yaml: |
-{{ tuple "config/_config.yaml" . | include "template" | indent 4 }}
+{{ include (print $.Template.BasePath "/config/_config.yaml") . |  indent 4 }}

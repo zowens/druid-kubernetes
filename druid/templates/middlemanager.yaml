@@ -16,19 +16,20 @@ spec:
   selector:
     name: middlemanager
 ---
-apiVersion: apps/v1alpha1
-kind: PetSet
+apiVersion: apps/v1
+kind: StatefulSet
 metadata:
   name: {{ .Values.nodes.middlemanager.service.name }}
 spec:
   serviceName: {{ .Values.nodes.middlemanager.service.name }}
   replicas: 2
+  selector:
+    matchLabels:
+      app: druid
   template:
     metadata:
       labels:
         app: druid
-      annotations:
-        pod.alpha.kubernetes.io/initialized: "true"
     spec:
       terminationGracePeriodSeconds: 0
       containers:

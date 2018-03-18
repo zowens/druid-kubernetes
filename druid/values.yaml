@@ -14,7 +14,7 @@ druidSegmentCache: "druid-deep-segment-cache"
 
 
 zookeeper:
-  Replicas: 3
+  Replicas: 1
   Name: zk
 postgresql:
   postgresUser: druid

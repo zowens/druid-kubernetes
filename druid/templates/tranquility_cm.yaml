@@ -4,4 +4,4 @@ metadata:
   name: metrics-tranquility-configmap
 data:
   metrics-server.json: |
-{{ tuple "config/_metrics-server.json" . | include "template" | indent 4 }}
+{{ include (print $.Template.BasePath "/config/_metrics-server.json")  . |  indent 4 }}
